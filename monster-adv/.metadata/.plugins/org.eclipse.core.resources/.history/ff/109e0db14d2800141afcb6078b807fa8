@@ -1,0 +1,24 @@
+package advertisement.action;
+
+import java.util.Collection;
+
+import bean.DigitalSignage;
+
+import signage.DigitalSignageDAO;
+import user.UserDAO;
+
+public class AdvertisementSearchAction {
+	private AdvertisementDAO advertisementDAO;
+
+	
+	public Collection<Advertisement> search(String masgerId)
+	{
+		return advertisementDAO.search();
+	}
+
+	public void setDigitalSignageDAO(DigitalSignageDAO digitalSignageDAO)
+	{
+		this.digitalSignageDAO=digitalSignageDAO;
+	}
+
+}

@@ -1,0 +1,20 @@
+package advertisement.action;
+
+import bean.Advertisement;
+import advertisement.AdvertisementDAO;
+
+public class AdvertisementAddAction {
+	private AdvertisementDAO advertisementDAO;
+
+	
+	public boolean insert(Advertisement adv)
+	{
+		return advertisementDAO.insert(adv);
+	}
+	
+	public void setAdvertisementDAO(AdvertisementDAO advertisementDAO)
+	{
+		this.advertisementDAO=advertisementDAO;
+	}
+
+}

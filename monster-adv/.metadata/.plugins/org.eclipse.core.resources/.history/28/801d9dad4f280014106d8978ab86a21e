@@ -1,0 +1,15 @@
+package advertisement.action;
+
+import advertisement.AdvertisementDAO;
+
+public class AdvertisementAddAction {
+	private AdvertisementDAO advertisementDAO;
+
+	
+	
+	public void setAdvertisementDAO(AdvertisementDAO advertisementDAO)
+	{
+		this.advertisementDAO=advertisementDAO;
+	}
+
+}

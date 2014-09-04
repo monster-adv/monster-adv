@@ -1,0 +1,1 @@
+Root = 서버에 올라가야 하는 이미지, css , javascript

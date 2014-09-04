@@ -1,0 +1,18 @@
+
+.selectContainer{
+	position:relative;
+	margin:0 auto;	
+	width: 525px;
+	height:408px;
+	bottom: -100px;
+	margin:0 auto;
+}
+
+td{
+	width: 200px;
+	height: 30px;
+}
+
+.year .month{
+	width:100px;
+}

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<html lang="ko" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="status" />
+
+<title>heel</title>
+
+</head>
+<body>
+	<jsp:include page="header.jsp" />
+
+	<div id="frame">
+	<c:forEach var="item" items="${list}">
+		<table>
+			<tr>
+				<td>광고명</td>
+				<td>"${item.name}"</td>
+			</tr>
+			<tr>
+				<td>광고대상</td>
+				<c:if test="${item.peopleKind eq 'M'}">
+					<td>남성</td>
+				</c:if>
+				<c:if test="${item.peopleKind eq 'W'}">
+					<td>여성</td>
+				</c:if>
+				<c:if test="${item.peopleKind eq 'N'}">
+					<td>무관</td>
+				</c:if>
+			</tr>
+			<tr>
+				<td>광고종류</td>
+				<c:if test="${item.advKind eq 'V'}">
+					<td>영상광고</td>
+				</c:if>
+				<c:if test="${item.advKind eq 'P'}">
+					<td>사진광고</td>
+				</c:if>
+			</tr>
+			<tr>
+				<td>요청된 사람 수</td>
+				<td>"${item.sum}"</td>
+			</tr>
+			<tr>
+				<td>남성 수</td>
+				<td>"${item.men_count}"</td>
+			</tr>
+			<tr>
+				<td>여성 수</td>
+				<td>"${item.women_count}"</td>
+			</tr>
+		</table>
+		<br><br>
+	</c:forEach>
+		</div>
+
+</body>
+</html>

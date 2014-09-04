@@ -1,0 +1,53 @@
+package main;
+import advertisement.AdvBroadCaster;
+import analysis.FloatingPopulationAnalyzer;
+
+/**
+ * 2014_05_22
+ * @author DooHyun
+ *
+ */
+public class ServerMain{
+	
+	
+	public static void main(String argc[])
+	{
+		String cameraIp="192.168.146.1";
+		int cameraPort = 9000;
+//		String signageIp = "111.111.111.111";
+//		int signagePort = 8000;		
+		FloatingPopulationAnalyzer fpServer = new FloatingPopulationAnalyzer();
+//		AdvBroadCaster advServer = new AdvBroadCaster();
+
+		/*connect*/
+		if(fpServer.connectCamera(cameraIp,cameraPort)==null)
+		{
+			System.out.println("Camera connect error!");
+			return;
+		}
+		
+//		if(advServer.connectSignage(signageIp, signagePort)==null)
+//		{
+//			System.out.println("Signage connect error!");
+//			return;
+//		}
+		/*분석 부분 start*/
+		fpServer.start();
+//		advServer.start();
+/*		
+		while(true)
+		{
+			if(fpServer.isClosed()&&advServer.isClosed())
+			{
+				System.out.println("Camera & Signage are disconnected");
+				fpServer.closeCamera();
+				advServer.closeSignage();
+				return;
+			}
+		}
+*/		
+			
+	}
+	
+
+}

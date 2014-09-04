@@ -1,0 +1,5 @@
+package signage.action;
+
+public class DigitalSignageSearchAction {
+
+}

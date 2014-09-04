@@ -1,0 +1,19 @@
+package advResult;
+
+import java.util.Collection;
+
+import base.DAO;
+
+public interface AdvertisementDAO extends DAO{
+
+	public boolean insert(Advertisement adv);
+	
+	public boolean delete(Advertisement adv);
+	
+	public Collection<Advertisement> search(StringBuilder signageID);
+	
+	public Collection<Advertisement> search(String masterID);
+
+	
+}
+

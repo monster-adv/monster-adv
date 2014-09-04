@@ -1,0 +1,9 @@
+package signage;
+
+public class DigitalSignage {
+	private String id;
+	private String name;
+	private float coordinate_x;
+	private float coordinate_y;
+	
+}

@@ -1,0 +1,221 @@
+   pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/css/map.css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<jsp:include page="header.jsp" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+	
+<script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=6646835921b40ef5f22bdd9ff1600105"></script>
+<div id="map" style="border:1px solid #000;"></div>
+<script type="text/javascript">
+		var oSeoulCityPoint = new nhn.api.map.LatLng(37.5675451, 126.9773356);
+		var defaultLevel = 11;
+		var equipmentArray = new Array();	/*장비 배열*/
+		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
+						point : oSeoulCityPoint,
+						zoom : defaultLevel,
+						enableWheelZoom : true,
+						enableDragPan : true,
+						enableDblClickZoom : false,
+						mapMode : 0,
+						activateTrafficMap : false,
+						activateBicycleMap : false,
+						minMaxLevel : [ 3, 14 ],
+						size : new nhn.api.map.Size(800, 480)		});
+		var oSlider = new nhn.api.map.ZoomControl();
+		oMap.addControl(oSlider);
+		oSlider.setPosition({
+			top : 10,
+			left : 10
+		});
+
+
+		
+		
+		var oSize = new nhn.api.map.Size(28, 37);
+		var oOffset = new nhn.api.map.Size(14, 37);
+		var oIcon = new nhn.api.map.Icon('/images/map/green_point.png', oSize, oOffset);
+		/*유동인구의 조건에 따라 이미지를 다르게 표시해 주기 위한 3색의 이미지*/
+		var redIcon = new nhn.api.map.Icon('/images/map/red_point.png', oSize, oOffset);
+		var greenIcon = new nhn.api.map.Icon('/images/map/green_point.png', oSize, oOffset);
+		var yellooIcon = new nhn.api.map.Icon('/images/map/yello_point.png', oSize, oOffset);
+		
+		/*정보 와드를 보여주기 위함*/
+		var oInfoWnd = new nhn.api.map.InfoWindow();
+		oInfoWnd.setVisible(false);
+		oMap.addOverlay(oInfoWnd);
+
+		oInfoWnd.setPosition({
+			top : 20,
+			left :20
+		});
+		
+
+		var oLabel = new nhn.api.map.MarkerLabel(); // - 마커 라벨 선언.
+		oMap.addOverlay(oLabel); // - 마커 라벨 지도에 추가. 기본은 라벨이 보이지 않는 상태로 추가됨.
+
+		oInfoWnd.attach('changeVisible', function(oCustomEvent) {
+			if (oCustomEvent.visible) {
+				oLabel.setVisible(false);
+			}
+		});
+		
+
+		oMap.attach('mouseenter', function(oCustomEvent) {
+
+			var oTarget = oCustomEvent.target;
+			// 마커위에 마우스 올라간거면
+			if (oTarget instanceof nhn.api.map.Marker) {
+				var oMarker = oTarget;
+				oLabel.setVisible(true, oMarker); // - 특정 마커를 지정하여 해당 마커의 title을 보여준다.
+			}
+		});
+
+		oMap.attach('mouseleave', function(oCustomEvent) {
+
+			var oTarget = oCustomEvent.target;
+			// 마커위에서 마우스 나간거면
+			if (oTarget instanceof nhn.api.map.Marker) {
+				oLabel.setVisible(false);
+			}
+		});
+		oMap.attach('click', function(oCustomEvent) {
+			
+			/*맵이 나타내고 있는 좌표를 가져 오는 부분*/
+			/*데이터를 가져와 점을 찍어야 함*/
+
+			var oTarget = oCustomEvent.target;
+			oInfoWnd.setVisible(false);
+			// 마커 클릭하면
+			if (oTarget instanceof nhn.api.map.Marker) {
+				addList(oTarget);
+				// 겹침 마커 클릭한거면
+				alert(oTarget.identifier);
+
+				if (oCustomEvent.clickCoveredMarker){
+					return;
+				}
+				return;
+			}
+		});
+		/*맵과 저장할 ary*/
+		var equipmentAddfunc = function(map,ary){
+			var bound = map.getBound();
+			var x1 = bound[0].x;
+			var y1 = bound[0].y;
+			var x2 = bound[1].x;
+			var y2 = bound[1].y;
+			var year = document.getElementById("year").value;
+			var month = document.getElementById("month").value;
+			var day = document.getElementById("day").value;
+			var hour = document.getElementById("hour").value;
+			jQuery.ajax({
+			type:"POST",
+			/*사이트가 바뀜에 따라 주소를 변경해야 됨*/
+			url:"http://localhost:8081/FinalWebProject/Mapping",
+			/*좌표에 해당하는 값을 전달함 이름 : value */
+			data:{x1:x1,y1:y1,x2:x2,y2:y2,year:year,month:month,day:day,hour:hour},
+			/*json 타입으로 리턴 받음*/
+			dataType:"json",
+			success:function(data,testStatus,jqXHR){
+				var result = data.mapResult;
+				var flag=0;
+				for(var i=0;i<data.mapResult.length;i++){
+					flag=0;
+					for(var j=0;j<ary.length;j++){
+						if(ary[j].coordinate.coordinateX==result[i].coordinate.coordinateX&&ary[j].coordinate.coordinateY==result[i].coordinate.coordinateY)
+						{	
+							flag=1;
+							break;
+						}
+					}/*j loop end*/
+
+					/*flag가 1이면 지금 지도안에 기기를 저장하는 목록에 중복된 좌표가 존재한다는 것이므로 추가하지 아니한다.*/
+					if(flag==1){
+						flag=0;	/*그러면 flag만 0으로 바꾼다.*/
+					}else{
+						ary.push(result[i]);/*이전에 없는 것인 경우 push한다.*/
+						var oMarker;
+						/*0~5명 한가한 경우*/
+						if(0<=result[i].population&&result[i].population<=5){
+							oMarker = new nhn.api.map.Marker(greenIcon, { title :result[i].address.si+' '+result[i].address.gu+' '+result[i].address.dong+' '+result[i].address.other});				
+							/*6~10명 조금 바쁜 경우*/
+						}else if(6<=result[i].population&&result[i].population<=10){
+							oMarker = new nhn.api.map.Marker(yelloIcon, { title :result[i].address.si+' '+result[i].address.gu+' '+result[i].address.dong+' '+result[i].address.other});						
+						/*10명 초과인 경우*/
+						}else{
+							oMarker = new nhn.api.map.Marker(redIcon, { title :result[i].address.si+' '+result[i].address.gu+' '+result[i].address.dong+' '+result[i].address.other});
+						}
+						oMarker.identifier = result[i].identifier;//identifier 추가
+						oMarker.setPoint(new nhn.api.map.LatLng(result[i].coordinate.coordinateY,result[i].coordinate.coordinateX));													
+						oMap.addOverlay(oMarker);
+
+					}/*else end*/
+				}/*i for문 end*/
+
+			},
+		 	error: function(xhr,status,error){
+				alert(xhr);
+			}
+			});
+		};
+		var addList = function(marker){
+			var list=document.getElementById("graph_list");
+			if(list.options.length==5){
+				alert("다섯개 이상 등록할 수 없습니다.");
+				return false;
+			}
+			//이미 존재하는 값이면
+			if(checkOption(list,marker.identifier)){
+				alert("이미 추가되어 있습니다.");
+				return false;
+			}
+			var equipOption =document.createElement("option");
+
+			equipOption.value=marker.identifier;
+
+			equipOption.text=marker.getTitle();
+
+			list.add(equipOption,null);
+		};
+		var checkOption = function(listBox,value){
+			var exists=false;
+
+			for(var i=0;i<listBox.options.length;i++){
+			if(listBox.options[i].value==value){ 
+			return true;
+			}
+			}
+			return exists;
+			};
+		
+		oMap.attach('dragend', function(oCustomEvent) {
+			equipmentAddfunc(oMap,equipmentArray);
+			});
+		
+
+		window.onload=function(){
+			var selectedRemove=document.getElementById("selectedRemove");
+			selectedRemove.addEventListener("click",
+				function(){
+				var list=document.getElementById("graph_list");
+				if(list.options.length==0){
+				return false;
+				}
+				var optionToRemove=list.options.selectedIndex;
+				list.remove(optionToRemove);
+			}
+					,false);	
+		};
+
+		</script>
+
+</body>
+</html>

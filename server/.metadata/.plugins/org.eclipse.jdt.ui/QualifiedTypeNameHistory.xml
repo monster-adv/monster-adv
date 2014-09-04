@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="VideoServer"/>
+<fullyQualifiedTypeName name="VideoSender"/>
+<fullyQualifiedTypeName name="AdvServer"/>
+<fullyQualifiedTypeName name="java.io.DataInputStream"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
+<fullyQualifiedTypeName name="PictureAdvHostSynchronizer"/>
+<fullyQualifiedTypeName name="AdvBroadCaster"/>
+<fullyQualifiedTypeName name="Advertisement"/>
+<fullyQualifiedTypeName name="javax.sql.DataSource"/>
+<fullyQualifiedTypeName name="com.mchange.v2.c3p0.ComboPooledDataSource"/>
+<fullyQualifiedTypeName name="com.mchange.v2.c3p0.DataSources"/>
+<fullyQualifiedTypeName name="Base.DAO"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="FloatingPopulation.FloatingPopulationDAO"/>
+<fullyQualifiedTypeName name="Base.BaseDAO"/>
+<fullyQualifiedTypeName name="project.AnalysisResult.AnalysisResult"/>
+<fullyQualifiedTypeName name="base.AnalysisResult"/>
+<fullyQualifiedTypeName name="java.net.Socket"/>
+<fullyQualifiedTypeName name="base.Film"/>
+<fullyQualifiedTypeName name="camserver.Film"/>
+<fullyQualifiedTypeName name="java.io.DataOutputStream"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
+<fullyQualifiedTypeName name="camserver.VideoRecorder"/>
+<fullyQualifiedTypeName name="java.net.ServerSocket"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="base.Advertisement"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletConfig"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+</qualifiedTypeNameHistroy>

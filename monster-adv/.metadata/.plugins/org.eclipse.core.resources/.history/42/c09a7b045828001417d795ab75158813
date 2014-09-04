@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript">
+		window.onload = function(){
+	
+		var usercheck = document.getElementById("requestID").value;
+		if(usercheck == "")
+		{
+			alert("로그인해주세요!");
+			window.location.assign("login");
+		}
+		};
+		</script>
+        
+        <title>ìíì½ë</title>
+        
+</head>
+<body>
+		<input type="hidden" name="requestID" id = "requestID" readonly="readonly" value="${sessionScope.logininfo.userId }" />	
+
+</body>
+</html>
+                 

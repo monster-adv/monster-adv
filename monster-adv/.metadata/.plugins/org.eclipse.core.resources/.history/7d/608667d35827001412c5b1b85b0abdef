@@ -1,0 +1,106 @@
+package signage;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Collection;
+import javax.sql.DataSource;
+
+import base.BaseDAO;
+
+public class DigitalSignageImple extends BaseDAO implements DigitalSignageDAO{
+
+
+	private final String SIGNAGE_INSERT ="INSERT INTO digital_signage(id,name,coordinate_x,coordinate_y) VALUES (?,?,?,?)";
+	public boolean insert(DigitalSignage signage) {
+		Connection connection = getConnection();
+		PreparedStatement pStatement = null;
+		try
+		{
+			connection = getConnection();
+			pStatement = connection.prepareStatement(SIGNAGE_INSERT);
+			pStatement.setString(1, signage.getId());
+			pStatement.setString(2, signage.getName());
+			pStatement.setFloat(3, signage.getCoordinate_x());
+			pStatement.setFloat(4, signage.getCoordinate_y());
+			return pStatement.execute();			
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+
+	private final String SIGNAGE_DELETE = "DELETE FROM digital_signage WHERE id=? ";
+	public boolean delete(DigitalSignage signage) {
+		Connection connection = getConnection();
+		PreparedStatement pStatement = null;
+		try
+		{
+			connection = getConnection();
+			pStatement = connection.prepareStatement(SIGNAGE_DELETE);
+			pStatement.setString(1, signage.getId());
+			return pStatement.execute();			
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+
+	private static final String SEARCH_BY_COORDINATES="select * from digital_signage WHERE coordinate_X BETWEEN ? AND ? AND coordinate_Y BETWEEN ? AND ?";
+	public Collection<DigitalSignage> search(float x1, float y1, float x2,
+			float y2) {
+		Connection connection=null;
+		PreparedStatement pStatement = null;
+		Collection<DigitalSignage> result = new LinkedList<DigitalSignage>();
+		ResultSet set=null;
+		try
+		{
+			connection = getConnection();
+			pStatement=connection.prepareStatement(SEARCH_BY_COORDINATES);
+			pStatement.setDouble(1,coordinate1.getCoordinateX());
+			pStatement.setDouble(2,coordinate2.getCoordinateX());
+			pStatement.setDouble(3,coordinate2.getCoordinateY());
+			pStatement.setDouble(4,coordinate1.getCoordinateY());
+			
+			 set=pStatement.executeQuery();
+			while(set.next())
+			{
+				String identifier=set.getString("IDENTIFIER");
+				double x = set.getDouble("coordinate_x");
+				double y = set.getDouble("coordinate_y");
+				String ip = set.getString("SERVER_IP");
+				int port_no = set.getInt("port_no");
+				String si= set.getString("si");
+				String gu=set.getString("gu");
+				String dong=set.getString("dong");
+				String detail=set.getString("detail");				
+				RecordingEquipment temp = new RecordingEquipment(identifier,null,null,new Address(si,gu,dong,detail),ip,port_no,new Coordinate(x,y));
+				result.add(temp);
+			}		
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		finally
+		{
+			closeDBObject(set, pStatement, connection);
+		}
+			return result;
+	}
+
+	@Override
+	public Collection<DigitalSignage> search(String userID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DigitalSignage search(StringBuilder id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+}

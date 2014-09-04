@@ -1,0 +1,24 @@
+.login{
+	position:relative;
+	margin:0 auto;	
+	width: 525px;
+	height:408px;
+	bottom: -100px;
+	background-image: url("/images/login/loginform.png");
+}
+.login_form{
+	position:relative;
+	margin:0 auto;	
+	width: 200px;
+	height:65px;
+	bottom: -235px;
+	right:-60px;
+}
+.login_button{
+	position:relative;
+	margin:0 auto;	
+	width: 70px;
+	height:30px;
+	bottom: -20px;
+	right:-100px;
+}

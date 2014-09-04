@@ -1,0 +1,22 @@
+1408416321091	Delete element
+1408423699929	Rename type 'DigitalSignageImple'
+1408517927661	Move compilation unit
+1408518681464	Copy compilation unit
+1408518695032	Rename type 'DigitalSignageDAO'
+1408519161011	Copy compilation unit
+1408519176249	Rename type 'DigitalSignageDAOImple'
+1408524529595	Delete element
+1408524533900	Copy compilation unit
+1408524552467	Rename type 'DigitalSignageDependencyInjector'
+1408524887454	Copy compilation unit
+1408527391516	Rename type 'DigitalSignageSearchAction'
+1408605354761	Encapsulate field 'menNum'
+1408605357812	Encapsulate field 'womenNum'
+1408605634832	Copy compilation unit
+1408605654428	Rename type 'AdvertisementDAO'
+1408605677720	Rename type 'ADVResultDAO'
+1408605959322	Copy compilation units
+1408605982800	Rename type 'AdvertisementDAOImple'
+1408606080372	Rename type 'AdvertisementDependencyInjector'
+1408607870090	Move compilation unit
+1408609579162	Encapsulate field 'startTime'

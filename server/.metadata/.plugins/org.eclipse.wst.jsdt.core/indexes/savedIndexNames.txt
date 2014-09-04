@@ -1,0 +1,6 @@
+INDEX VERSION 1.122+D:\monsterADV\monster-adv\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+379176508.index
+3302512715.index
+4062996312.index
+3563597970.index
+710315260.index

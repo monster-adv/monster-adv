@@ -1,0 +1,49 @@
+package advResult;
+import java.util.Calendar;
+
+import bean.AdvKind;
+
+
+
+public class AdvResult {
+	private String advName;
+	private AdvKind advKind;
+	private int menNum;
+	private int womenNum;
+	private Calendar startTime;
+	
+	
+	
+	public String getAdvName() {
+		return advName;
+	}
+	public void setAdvName(String advName) {
+		this.advName = advName;
+	}
+	public AdvKind getAdvKind() {
+		return advKind;
+	}
+	public void setAdvKind(AdvKind advKind) {
+		this.advKind = advKind;
+	}
+	public Calendar getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(Calendar startTime) {
+		this.startTime = startTime;
+	}
+	public int getMenNum() {
+		return menNum;
+	}
+	public void setMenNum(int menNum) {
+		this.menNum = menNum;
+	}
+	public int getWomenNum() {
+		return womenNum;
+	}
+	public void setWomenNum(int womenNum) {
+		this.womenNum = womenNum;
+	}
+
+	
+}

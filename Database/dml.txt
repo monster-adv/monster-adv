@@ -1,0 +1,332 @@
+INSERT INTO digital_signage(id,name,coordinate_x,coordinate_y)
+VALUES ('1','숭실대학교 창의관 앞',126.9591903,37.4948184)
+
+INSERT INTO digital_signage(id,name,coordinate_x,coordinate_y)
+VALUES ('2','숭실대학교 정보대 위',126.960651,37.4946223)
+
+INSERT INTO digital_signage(id,name,coordinate_x,coordinate_y)
+VALUES ('3','숭실대학교 4번출구',126.954601,37.4954826)
+
+INSERT INTO digital_signage(id,name,coordinate_x,coordinate_y)
+VALUES ('4','상도역 3번 출구',126.9476691,37.5034786)
+
+INSERT ALL
+
+INTO adv_info(adv_num, name, master_id, signage_id,adv_kind,people_kind,locate,time,sum,men_count,women_count)
+VALUES ('1','네이버 앱스토어','k198934','1','V','M','c:/a.avi',10,10000,1000,100)
+
+INTO adv_info(adv_num, name, master_id, signage_id,adv_kind,people_kind,locate,time,sum,men_count,women_count)
+VALUES ('2','네이버','k198934','1','V','F','c:/b.avi',10,10000,1000,100)
+
+INTO adv_info(adv_num, name, master_id, signage_id,adv_kind,people_kind,locate,time,sum,men_count,women_count)
+VALUES ('3','면도기','k198934','1','V','M','c:/c.avi',10,10000,1000,1000)
+
+INTO adv_info(adv_num, name, master_id, signage_id,adv_kind,people_kind,locate,time,sum,men_count,women_count)
+VALUES ('4','뮤지컬 그리스','k198934','1','V','N','c:/d.avi',8,9000,3000,800)
+
+INTO adv_info(adv_num, name, master_id, signage_id,adv_kind,people_kind,locate,time,sum,men_count,women_count)
+VALUES ('5','엘라스틴 린스','k198934','1','V','F','c:/d.avi',10,10000,1000,500)
+
+INTO adv_info(adv_num, name, master_id, signage_id,adv_kind,people_kind,locate,time,sum,men_count,women_count)
+VALUES ('6','Apple','k198934','1','V','M','c:/e.avi',11,8000,2000,1100)
+
+INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('1','1','2014-08-01-21-00-01',3,7)
+
+INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('2','1','2014-08-01-22-01-02',4,6)
+
+INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('3','1','2014-08-01-23-02-03',5,5)
+
+INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('4','1','2014-08-02-01-00-04',1,4)
+
+INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('5','1','2014-08-02-02-00-05',2,5)
+
+INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('6','1','2014-08-02-03-00-06',5,8)
+
+INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('7','1','2014-08-02-04-00-07',1,8)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('8','1','2014-08-02-05-00-08',6,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('9','1','2014-08-02-06-00-09',1,5)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('10','1','2014-08-02-07-00-10',5,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('11','1','2014-08-02-08-00-11',8,3)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('12','1','2014-08-02-09-00-12',3,2)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('13','1','2014-08-02-10-00-13',5,9)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('14','1','2014-08-02-11-00-14',9,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('15','1','2014-08-02-12-00-15',4,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('16','1','2014-08-02-13-00-16',4,5)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('17','1','2014-08-02-14-00-17',4,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('18','1','2014-08-02-15-00-18',2,3)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('19','1','2014-08-02-16-00-19',6,1)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('20','1','2014-08-02-17-00-20',9,2)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('21','1','2014-08-02-18-00-21',4,5)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('22','1','2014-08-02-19-00-22',4,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('23','1','2014-08-02-20-00-23',6,3)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('24','1','2014-08-02-21-00-24',8,9)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('25','1','2014-08-02-22-00-25',9,3)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('26','1','2014-08-02-23-00-26',4,5)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('27','1','2014-08-03-00-00-27',4,9)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('28','1','2014-08-03-01-00-28',1,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('29','1','2014-08-03-02-00-29',4,5)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('30','1','2014-08-03-03-00-30',8,2)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('31','1','2014-08-03-04-00-31',9,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('32','1','2014-08-03-05-00-32',4,3)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('33','1','2014-08-03-06-00-33',4,8)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('34','1','2014-08-03-07-00-34',4,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('35','1','2014-08-03-08-00-35',3,2)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('36','1','2014-08-03-09-00-36',6,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('37','1','2014-08-03-10-00-37',2,5)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('38','1','2014-08-03-11-00-38',5,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('39','1','2014-08-03-12-00-39',5,5)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('40','1','2014-08-03-13-00-40',4,8)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('41','1','2014-08-03-14-00-41',8,8)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('42','1','2014-08-03-15-00-42',6,3)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('43','1','2014-08-03-16-00-43',6,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('44','1','2014-08-03-17-00-44',1,8)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('45','1','2014-08-03-18-00-45',9,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('46','1','2014-08-03-19-00-46',6,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('47','1','2014-08-03-20-00-47',4,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('48','1','2014-08-03-21-00-48',3,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('49','1','2014-08-03-22-00-49',2,2)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('50','1','2014-08-03-23-00-50',3,1)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('51','1','2014-08-04-00-00-51',5,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('52','1','2014-08-04-01-00-52',3,8)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('53','1','2014-08-04-02-00-53',2,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('54','1','2014-08-04-03-00-54',6,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('55','1','2014-08-04-04-00-55',7,9)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('56','1','2014-08-04-05-00-56',8,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('57','1','2014-08-04-06-00-57',4,5)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('58','1','2014-08-04-07-00-58',3,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('59','1','2014-08-04-08-00-59',5,3)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('60','1','2014-08-04-09-01-01',6,2)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('61','1','2014-08-04-10-01-02',3,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('62','1','2014-08-04-11-01-03',1,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('63','1','2014-08-04-12-01-04',3,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('64','1','2014-08-04-13-01-05',5,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('65','1','2014-08-04-14-01-06',6,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('66','1','2014-08-04-15-01-07',7,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('67','1','2014-08-04-16-01-08',5,8)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('68','1','2014-08-04-17-01-09',8,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('69','1','2014-08-04-18-01-10',9,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('70','1','2014-08-04-19-01-11',5,8)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('71','1','2014-08-04-20-01-12',5,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('72','1','2014-08-04-21-01-13',1,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('73','1','2014-08-04-22-01-14',2,9)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('74','1','2014-08-04-23-01-15',6,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('75','1','2014-08-05-00-01-16',8,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('76','1','2014-08-05-01-01-17',9,5)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('77','1','2014-08-05-02-01-18',6,8)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('78','1','2014-08-05-03-01-19',7,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('79','1','2014-08-05-04-01-20',0,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('80','1','2014-08-05-05-01-21',8,1)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('81','1','2014-08-05-06-01-22',6,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('82','1','2014-08-05-07-01-23',5,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('83','1','2014-08-05-08-01-24',4,5)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('84','1','2014-08-05-09-01-25',2,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('85','1','2014-08-05-10-01-26',3,9)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('86','1','2014-08-05-11-01-27',4,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('87','1','2014-08-05-12-01-28',3,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('88','1','2014-08-05-13-01-29',6,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('89','1','2014-08-05-14-01-30',8,2)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('90','1','2014-08-05-15-01-31',4,9)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('91','1','2014-08-05-16-01-32',3,3)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('92','1','2014-08-05-17-01-33',1,9)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('93','1','2014-08-05-18-01-34',2,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('94','1','2014-08-05-19-01-35',7,6)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('95','1','2014-08-05-20-01-36',3,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('96','1','2014-08-05-21-01-37',2,4)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('97','1','2014-08-05-22-01-38',5,6)
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('98','1','2014-08-05-23-01-39',6,7)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('99','1','2014-08-06-00-01-40',2,8)
+
+ INTO adv_result(result_num, adv_num, start_time, men_num, women_num)
+VALUES ('100','1','2014-08-06-01-01-41',6,0);
+
+select * from dual

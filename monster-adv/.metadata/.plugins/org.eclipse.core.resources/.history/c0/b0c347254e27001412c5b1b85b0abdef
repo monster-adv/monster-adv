@@ -1,0 +1,50 @@
+package signage;
+
+import java.sql.Connection;
+import java.util.Collection;
+import javax.sql.DataSource;
+
+import base.BaseDAO;
+
+public class DigitalSignageImple extends BaseDAO implements DigitalSignageDAO{
+
+
+	private final String SIGNAGE_INSERT ="INSERT INTO digital_signage(id,name,coordinate_x,coordinate_y) VALUES (?,?,?,?)";
+	public boolean insert(DigitalSignage signage) {
+		
+		
+		return false;
+	}
+
+	@Override
+	public boolean delete(DigitalSignage signage) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Collection<DigitalSignage> search(float x1, float y1, float x2,
+			float y2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Collection<DigitalSignage> search(String userID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DigitalSignage search(StringBuilder id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Connection getConnection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

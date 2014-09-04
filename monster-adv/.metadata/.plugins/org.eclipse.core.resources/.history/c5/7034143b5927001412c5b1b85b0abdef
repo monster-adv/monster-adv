@@ -1,0 +1,42 @@
+package signage;
+
+public class DigitalSignage {
+	private String id;
+	private String name;
+	private float coordinate_x;
+	private float coordinate_y;
+	
+	public DigitalSignage(String id, String name, float coordinate_x,
+			float coordinate_y) {
+		this.id = id;
+		this.name = name;
+		this.coordinate_x = coordinate_x;
+		this.coordinate_y = coordinate_y;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public float getCoordinate_x() {
+		return coordinate_x;
+	}
+	public void setCoordinate_x(float coordinate_x) {
+		this.coordinate_x = coordinate_x;
+	}
+	public float getCoordinate_y() {
+		return coordinate_y;
+	}
+	public void setCoordinate_y(float coordinate_y) {
+		this.coordinate_y = coordinate_y;
+	}
+	
+	
+}

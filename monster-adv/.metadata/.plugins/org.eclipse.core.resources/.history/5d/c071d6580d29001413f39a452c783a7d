@@ -1,0 +1,24 @@
+package advResult.action;
+
+import java.util.Collection;
+
+import advResult.AdvResult;
+import advResult.AdvResultDAO;
+
+
+public class AdvResultSearchAction {
+	private AdvResultDAO advResultDAO;
+
+	
+	public Collection<AdvResult> search(String masterId,String startDate)
+	{
+		return advResultDAO.search(masterId,startDate);
+	}
+
+	
+	public void setAdvResultDAO(AdvResultDAO advResultDAO)
+	{
+		this.advResultDAO=advResultDAO;
+	}
+
+}

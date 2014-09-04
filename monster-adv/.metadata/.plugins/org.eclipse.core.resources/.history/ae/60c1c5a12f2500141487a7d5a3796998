@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//WebContent/registadv.jsp=UTF-8
+encoding//WebContent/status.jsp=UTF-8
+encoding//src/servlet/UserServlet.java=UTF-8
+encoding//src/user/UserDAOImple.java=UTF-8

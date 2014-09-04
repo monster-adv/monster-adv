@@ -1,0 +1,23 @@
+package advResult;
+
+import java.util.Collection;
+
+import advertisement.Advertisement;
+import advertisement.AdvertisementDAO;
+
+public class AdvResultSearchAction {
+	private AdvResultDAO advResultDAO;
+
+	
+	public Collection<AdvResult> search(String masterId)
+	{
+		return advResultDAO.search(masterId);
+	}
+
+	
+	public void setAdvResultDAO(AdvResultDAO advResultDAO)
+	{
+		this.advResultDAO=advResultDAO;
+	}
+
+}

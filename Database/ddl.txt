@@ -1,0 +1,47 @@
+CREATE TABLE user_info
+(
+ id	VARCHAR2(12) PRIMARY KEY NOT NULL,
+ password 	VARCHAR2(12) NOT NULL,
+ name	VARCHAR2(10) NOT NULL,
+ email	VARCHAR2(30)
+)
+
+CREATE TABLE digital_signage
+(
+ id VARCHAR2(12) PRIMARY KEY NOT NULL,
+ name VARCHAR2(100) NOT NULL,
+ coordinate_x NUMBER NOT NULL,
+ coordinate_y NUMBER NOT NULL
+)
+
+CREATE TABLE adv_info
+(
+ adv_num VARCHAR2(100) PRIMARY KEY,
+ name VARCHAR2(100) NOT NULL,
+ master_id VARCHAR2(12) CONSTRAINTS fk_adv_info REFERENCES user_info (id),
+ signage_id VARCHAR2(12) CONSTRAINTS fk_adv_info2 REFERENCES digital_signage (id),
+ people_kind VARCHAR2(1) NOT NULL,
+ adv_kind VARCHAR2(1) NOT NULL,
+ locate VARCHAR2(200) NOT NULL,
+ time NUMBER,
+ sum NUMBER,
+ men_count NUMBER,
+ women_count NUMBER
+);
+
+CREATE TABLE adv_result
+(
+  result_num VARCHAR2(100) PRIMARY KEY,
+  adv_num VARCHAR2(100) CONSTRAINTS fk_adv_result REFERENCES adv_info (adv_num),
+  start_time VARCHAR2(30),
+  men_num NUMBER,
+ women_num NUMBER
+);
+
+CREATE SEQUENCE  ADV_SEQUENCE  
+        INCREMENT BY 1
+        START WITH 10 
+        NOMAXVALUE 
+        NOMINVALUE
+        NOCYCLE
+        NOCACHE

@@ -1,0 +1,8 @@
+1400753950413	Rename type 'AdvServer'
+1400827788380	Encapsulate field 'loaction'
+1400827791173	Encapsulate field 'playtime'
+1400834140127	Delete element
+1400834161888	Move compilation unit
+1400834680873	Encapsulate field 'startTime'
+1400835004450	Encapsulate field 'startTime'
+1400835008442	Encapsulate field 'endTime'

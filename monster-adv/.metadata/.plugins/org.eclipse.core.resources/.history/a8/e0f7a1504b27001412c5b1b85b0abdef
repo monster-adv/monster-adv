@@ -1,0 +1,7 @@
+package signage;
+
+import base.DAO;
+
+public interface DigitalSignageDAO extends DAO{
+
+}

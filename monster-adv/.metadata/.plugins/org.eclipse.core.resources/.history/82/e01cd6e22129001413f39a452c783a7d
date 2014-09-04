@@ -1,0 +1,67 @@
+package advResult;
+import java.util.Calendar;
+
+import bean.AdvKind;
+
+
+
+public class AdvResult {
+	public AdvResult(int menNum, int womenNum, String startTime) {
+		super();
+		this.menNum = menNum;
+		this.womenNum = womenNum;
+		this.startTime = startTime;
+	}
+	private String advName;
+	private int menNum;
+	private int womenNum;
+	private String startTime;
+	
+	@Override
+	public String toString() {
+		return "AdvResult [advName=" + advName 
+				+ ", menNum=" + menNum + ", womenNum=" + womenNum
+				+ ", startTime=" + startTime + "]";
+	}
+	public AdvResult(String advName, AdvKind advKind, int menNum, int womenNum,
+			String startTime) {
+		super();
+		this.advName = advName;
+		this.advKind = advKind;
+		this.menNum = menNum;
+		this.womenNum = womenNum;
+		this.startTime = startTime;
+	}
+	public String getAdvName() {
+		return advName;
+	}
+	public void setAdvName(String advName) {
+		this.advName = advName;
+	}
+	public AdvKind getAdvKind() {
+		return advKind;
+	}
+	public void setAdvKind(AdvKind advKind) {
+		this.advKind = advKind;
+	}
+	public int getMenNum() {
+		return menNum;
+	}
+	public void setMenNum(int menNum) {
+		this.menNum = menNum;
+	}
+	public int getWomenNum() {
+		return womenNum;
+	}
+	public void setWomenNum(int womenNum) {
+		this.womenNum = womenNum;
+	}
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	
+}

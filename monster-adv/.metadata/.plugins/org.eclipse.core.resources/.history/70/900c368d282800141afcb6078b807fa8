@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="/css/newADV.css" />
+		<script type="text/javascript">
+		window.onload = function(){
+	
+		if("#{empty sessionScope['logininfo']}")
+		{
+			alert("로그인해주세요!");
+			window.location.assign("login");
+		}
+		else if ("#{empty logininfo}")
+		{
+			alert("기기정보가 없습니다.");
+			
+		}
+		}		
+		</script>
+		
+		
+		<title>Insert title here</title>
+</head>
+<body>
+	<jsp:include page="header.jsp" />
+
+
+		<div id="frame">
+		<form name="newADVReuslt" method="post">
+		<input type="hidden" name="advID" id="advID" value="${signageID}"/>
+		<table width="100%" border="1"  cellpadding="0" id="joinData" summary="총 10개의 입력항목">
+		<tbody>
+			<tr>
+				<th class="inputKind"><label>신청자</label></th>
+				<th class="inputData"><input type="text" name="requestID" readonly="readonly" value="${sessionScope.logininfo.userId }" /></th>	
+			</tr>	
+			<tr>
+				<th class="inputKind"><label>위치</label></th>
+				<th class="inputData"><input type="text" name="advName" readonly="readonly" value="${signageName}" /></th>
+			</tr>
+			<tr>
+				<th class="inputKind"><label>광고종류</label></th>
+				<th class="inputData"><input type="radio" name="advKind" value="video" checked="checked"/><label>영상</label>
+									  <input type="radio" name="advKind" value="picture"/><label>사진</label>
+				</th>
+			</tr>
+			<tr>
+				<th class="inputKind"><label>원하는 고객종류</label></th>
+				<th class="inputData"><input type="radio" name="peopleKind" value="men"/><label>남성</label>
+									  <input type="radio" name="peopleKind" value="women"/><label>여성</label>
+									  <input type="radio" name="peopleKind" value="all" checked="checked"/><label>무관</label></th>
+			</tr>
+			<tr>
+				<th class="inputKind">
+				<label>원하는 사람 수</label></th>
+				<th class="inputData"><input type="text" name="peoplenum"/></th>
+			</tr>
+			<tr>
+				<th></th>
+				<th><input class="sButton" type="submit" value="회원가입" /></th>
+			</tr>		
+		</tbody>
+		</table>
+						
+		</form>
+		</div>
+</body>
+</html>

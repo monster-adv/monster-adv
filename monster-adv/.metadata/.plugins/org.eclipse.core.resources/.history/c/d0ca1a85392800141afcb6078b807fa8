@@ -1,0 +1,22 @@
+package advertisement.action;
+
+import java.util.Collection;
+
+import base.DAO;
+import bean.Advertisement;
+import bean.DigitalSignage;
+
+public interface AdvertisementDAO extends DAO{
+
+	public boolean insert(Advertisement adv);
+	
+	public boolean delete(Advertisement adv);
+	
+	public Collection<DigitalSignage> search(double x1,double y1, double x2,double y2);
+	
+	public Collection<DigitalSignage> search(String userID);
+
+	public DigitalSignage search (StringBuilder id);
+	
+}
+

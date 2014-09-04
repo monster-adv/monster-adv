@@ -1,0 +1,26 @@
+1401596594057	Move compilation unit
+1401596729579	Move compilation unit
+1401599326807	Encapsulate field 'socket'
+1401599331500	Encapsulate field 'serverSocket'
+1401947258362	Encapsulate field 'serverSocket'
+1401950600366	Encapsulate field 'location'
+1401950688589	Encapsulate field 'supremumTime'
+1402027664909	Encapsulate field 'pictureAdvSyncList'
+1402027905855	Encapsulate field 'pictureAdvList'
+1402030613196	Rename package 'project.Advertisement'
+1402030639062	Move compilation units
+1402030922162	Move compilation units
+1402035766444	Copy package
+1402035789142	Delete elements
+1402035796898	Delete elements
+1402037283288	Delete element
+1402037285872	Delete element
+1402039475052	Rename package 'project.Analysis'
+1402039513097	Delete elements
+1402039524511	Delete elements
+1402039715776	Delete element
+1402039770290	Move compilation unit
+1402039840354	Delete element
+1402044858195	Delete element
+1402044975925	Move compilation unit
+1402044979830	Delete element

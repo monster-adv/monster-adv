@@ -1,0 +1,40 @@
+#wrapper{
+	bottom:-80px;
+	height:350px;
+	width:1200px;
+	margin:0 auto;
+/*	background:#e0e0e0;*/
+}
+
+#logo{
+	width:1000px;
+	margin:0 auto;
+	height:80px;
+}
+#rightMenu{
+	position:relative;
+	float: right;
+}
+
+#menu{
+	position:relative;
+/*	width:910px;*/
+	bottom:-150px;
+	right:-150px;
+	margin: 0 auto;
+}
+#menu li{
+float:left;	/*왜 이걸 하면 링크가 사라지는거지*/
+}
+#content{
+	position:relative;
+	margin:0 auto;
+	width:650px;
+	bottom:-100px;
+	
+}
+#footer{
+	position:relative;
+	bottom:-300px;
+	float:right;
+}

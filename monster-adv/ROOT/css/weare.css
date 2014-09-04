@@ -1,0 +1,29 @@
+#wrapper{
+	bottom:-80px;
+	height:1000px;
+	width:1200px;
+	margin:0 auto;
+/*	background:#e0e0e0;*/
+}
+
+#info{
+	width: 50%;
+	position:relative;
+	margin:0 auto;
+	border-collapse: collapse;
+}
+#info td, #info th{
+	font-size: 1.1em;
+	text-align: : left;
+	padding-top : 5px;
+	padding-bottom: 4px;	
+	padding-right: :10px;
+}
+#info td{
+	color: #000000;
+	background-color: #EAF2D3;
+}
+
+.face{
+	left: -10px;
+}

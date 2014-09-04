@@ -1,0 +1,5 @@
+package advertisement.action;
+
+public class AdvertisementAddAction {
+
+}

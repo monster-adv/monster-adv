@@ -1,0 +1,16 @@
+package signage;
+
+import user.LoginInfo;
+import user.User;
+import base.DAO;
+
+public interface DigitalSignageDAO extends DAO{
+
+	public boolean insert(DigitalSignage signage);
+	
+	public boolean delete(DigitalSignage signage);
+	
+	public Collection<DigitalSignage> search(float x1,float y1, float x2,float y2);
+	
+
+}

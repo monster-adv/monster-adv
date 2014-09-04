@@ -1,0 +1,112 @@
+package user;
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import base.BaseDAO;
+
+public class UserDAOImple extends BaseDAO implements UserDAO{
+
+
+	private static final String LOGIN_SQL="SELECT id FROM user_info where id=? AND password=?";	
+	public LoginInfo login(String userID, String password) {
+
+		Connection connection=null;
+		PreparedStatement pStatement = null;
+		LoginInfo info = null;
+				
+		try {
+			connection = getConnection();
+			pStatement = connection.prepareStatement(LOGIN_SQL);
+			pStatement.setString(1,userID);
+			pStatement.setString(2,password);
+
+			ResultSet set=pStatement.executeQuery();
+			set.next();
+			
+			info = new LoginInfo(userID);
+			return info;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
+	private static final String REGIST_USER_SQL="INSERT INTO user_info(id,password,name,email)  VALUES (?,?,?,?)";
+	@Override
+	public boolean regist(User user) {
+
+		Connection connection=null;
+		PreparedStatement pStatement = null;
+				
+		try {
+			connection = getConnection();
+			pStatement = connection.prepareStatement(REGIST_USER_SQL);
+			pStatement.setString(1,user.getUserId());
+			pStatement.setString(2,user.getPassword());
+			pStatement.setString(3,user.getName());
+			pStatement.setString(4,user.getEmail());
+
+			return pStatement.execute();
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+
+	private static final String CHECK_ID_SQL="SELECT * FROM user_info where id=?";		
+	@Override
+	public boolean isValidId(String userID) {
+		Connection connection=null;
+		PreparedStatement pStatement = null;
+		try{
+			connection = getConnection();
+
+			pStatement = connection.prepareStatement(CHECK_ID_SQL);
+			pStatement.setString(1,userID);
+			ResultSet set=pStatement.executeQuery();
+			set.next();
+			try
+			{
+				/*���⼭ �ͼ����� ������ �˻� ��� �������� �ʴ� ��*/
+				set.getString("user_id");
+			}
+			catch(Exception e)
+			{
+				return false;
+			}
+		}
+		catch(Exception e)
+		{
+			
+		}
+		return true;
+	}
+
+	@Override
+	public boolean isValidEmail(String email) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean modify(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean delete(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

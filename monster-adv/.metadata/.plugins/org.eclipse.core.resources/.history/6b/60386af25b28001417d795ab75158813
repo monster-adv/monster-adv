@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<html lang="ko" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>ìíì½ë</title>
+        
+</head>
+<body>
+		<select name="graph_list" id="graph_list"  size="10" >
+		<c:forEach var="item" items="${list}">
+		<option value="${item.identifier }"> ${item.address.si} ${item.address.gu} ${item.address.dong} ${item.address.other}</option>
+		</c:forEach>
+		</select>
+
+</body>
+</html>
+                 
