@@ -1,0 +1,89 @@
+package analysis;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+
+import bean.AnalysisResult;
+import bean.FilmAdvInfo;
+import bean.PeopleKind;
+import analysis.action.AdvInfoSelectAction;
+
+public class DecisionMaker
+{
+	private FloatingPopulationDependencyInjector injector;
+	
+	private ArrayDeque<FilmAdvInfo> menQueue;
+	private ArrayDeque<FilmAdvInfo> womenQueue;
+	private ArrayDeque<FilmAdvInfo> natrualQueue;
+	private AnalysisResult gender;
+	public DecisionMaker(FloatingPopulationDependencyInjector injector, AnalysisResult gender)
+	{
+		this.injector = injector;
+		this.gender = gender;
+	}
+	public FloatingPopulationDependencyInjector getInjector() {
+		return injector;
+	}
+
+	public void setInjector(FloatingPopulationDependencyInjector injector) {
+		this.injector = injector;
+	}
+	public void renewQueue()
+	{
+		AdvInfoSelectAction	selection = (AdvInfoSelectAction)injector.getObject(AdvInfoSelectAction.class);
+		
+		/*전체 리스트를 받아와 임시 리스트*/
+		ArrayList<FilmAdvInfo> tempList	= selection.search();
+		menQueue = new ArrayDeque<FilmAdvInfo>();
+		womenQueue = new ArrayDeque<FilmAdvInfo>();
+		natrualQueue = new ArrayDeque<FilmAdvInfo>();
+		
+		for(FilmAdvInfo tInfo : tempList)
+		{
+			if(tInfo.getKind() == PeopleKind.M)
+			{
+				System.out.print("man");
+				menQueue.push(tInfo);
+			}
+			else if(tInfo.getKind() == PeopleKind.F)
+			{
+				System.out.print("woman");
+				womenQueue.push(tInfo);
+			}
+			else
+			{
+				System.out.print("natural");
+				natrualQueue.push(tInfo);
+			}
+		}
+		
+	}
+	
+	/*남성 여성 일반의 경우에 맞추어 */
+	public FilmAdvInfo decision()
+	{
+		int male, female
+		male = gender.getFemaleCount();
+		female = gender.getFemaleCount();
+
+		FilmAdvInfo returnInfo;
+		
+		if(male > female){
+			
+			returnInfo = menQueue.pop();
+			menQueue.push(returnInfo);			
+		}
+		else if(male < female){
+			returnInfo = womenQueue.pop();
+			womenQueue.push(returnInfo);
+		}
+		else{
+			returnInfo = natrualQueue.pop();
+			natrualQueue.push(returnInfo);
+		}
+		return returnInfo;
+		
+	}
+
+
+	
+}

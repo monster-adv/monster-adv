@@ -1,0 +1,109 @@
+package analysis;
+import base.*;
+import bean.AnalysisResult;
+
+import java.sql.*;
+import java.util.Calendar;
+
+
+public class AnalysisResultDAOImple extends BaseDAO implements AnalysisResultDAO{
+	private Connection conn;
+	private PreparedStatement pStmt;
+	private ResultSet rs;
+	private String sql;
+	private Calendar cal = Calendar.getInstance();
+	private Time t;
+	private Date d;
+	@Override
+	
+	public boolean add(AnalysisResult analysisResult) {
+		// TODO Auto-generated method stub
+		try {
+			conn = getConnection();
+			sql = "insert into analysis values(to_date(?, 'YYYY-MM-DD HH24:MI:SS'),to_date(?, 'YYYY-MM-DD HH24:MI:SS'),?,?)";
+			pStmt = conn.prepareStatement(sql);
+			//cal = analysisResult.getStartTime();
+			d = new Date(cal.getTimeInMillis());
+			t = new Time(cal.getTimeInMillis());
+			pStmt.setString(1, d.toString() + " " + t.toString());
+			//cal = analysisResult.getEndTime();
+			d = new Date(cal.getTimeInMillis());
+			t = new Time(cal.getTimeInMillis());
+			pStmt.setString(2, d.toString() + " " +t.toString());
+			pStmt.setInt(3,analysisResult.getMaleCount());
+			pStmt.setInt(4, analysisResult.getFemaleCount());
+			pStmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+
+	try {
+		rs.close();
+		pStmt.close();
+		conn.close();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		return true;
+	}
+	
+/*	public boolean delete(AnalysisResult analysisResult) {
+		// TODO Auto-generated method stub
+		try {
+			conn = getConnection();
+			sql = "delete from analysis where StartTime = ? and EndTime = ? and NumOfMr = ?" +
+				  " and NumOfMs = ?";
+			pStmt = conn.prepareStatement(sql);
+			cal = analysisResult.getStartTime();
+			d = new Date(cal.getTimeInMillis());
+			pStmt.setDate(1, d);
+			cal = analysisResult.getEndTime();
+			d = new Date(cal.getTimeInMillis());
+			pStmt.setDate(2, d);
+			pStmt.setInt(3,analysisResult.getNumOfMr());
+			pStmt.setInt(4, analysisResult.getNumOfMs());
+			pStmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+		
+		return true;
+	}
+*/
+/*	public AnalysisResult search(Calendar StartTime) {
+		// TODO Auto-generated method stub
+		AnalysisResult analysisResult = new AnalysisResult();
+		//int i = 1;
+		try {
+			conn = getConnection();
+			sql = "select * from analysis where StartTime = ?";
+			pStmt = conn.prepareStatement(sql);
+			cal = StartTime;
+			d = new Date(cal.getTimeInMillis());
+			pStmt.setDate(1, d);
+			rs = pStmt.executeQuery();
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1));
+				cal.setTime(d);
+				analysisResult.setStartTime(cal);
+				d = rs.getDate(2);
+				cal.setTime(d);
+				analysisResult.setEndTime(cal);
+				analysisResult.setNumOfMr(rs.getInt(3));
+				analysisResult.setNumOfMs(rs.getInt(4));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return analysisResult;
+	}*/
+}

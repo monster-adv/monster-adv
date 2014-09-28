@@ -1,0 +1,28 @@
+package analysis;
+import java.util.ArrayList;
+import java.util.List;
+
+import bean.AnalysisResult;
+import bean.Film;
+
+
+
+
+public class FilmAnalyzer implements Runnable
+{
+	GenderInfo genderInfo;
+		
+	public FilmAnalyzer(GenderInfo genderInfo)
+	{
+		this.genderInfo = genderInfo;
+	}	
+	
+
+	public void run() {
+		this.NativeCall(genderInfo);
+	}
+	native void NativeCall(GenderInfo gender);
+	static{
+		System.loadLibrary("genderr");
+	}
+}

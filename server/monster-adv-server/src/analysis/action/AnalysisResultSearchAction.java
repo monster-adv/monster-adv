@@ -1,6 +1,7 @@
 package analysis.action;
 import java.util.Calendar;
-import bean.AnalysisResult;
+
+import analysis.AnalysisResult;
 import analysis.AnalysisResultDAO;
 
 

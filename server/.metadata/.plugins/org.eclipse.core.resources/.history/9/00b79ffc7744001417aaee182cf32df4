@@ -1,0 +1,21 @@
+package main;
+import advertisement.film.AdvOrder;
+import analysis.AdvInfoDAOImple;
+import analysis.FloatingPopulationAnalyzer;
+
+/**
+ * 2014_05_22
+ * @author DooHyun
+ *
+ */
+public class ServerMain{
+	 
+	
+	public static void main(String argc[])
+	{
+		FloatingPopulationAnalyzer fpAnalyzer = new FloatingPopulationAnalyzer();
+		fpAnalyzer.go();
+	}
+	
+
+}

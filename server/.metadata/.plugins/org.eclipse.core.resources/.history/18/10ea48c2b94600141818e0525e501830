@@ -1,0 +1,93 @@
+package analysis;
+import analysis.action.*;
+
+import javax.sql.*;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.mchange.v2.c3p0.DataSources;
+
+ 
+public class AnalysisDependencyInjector {
+	
+	private DataSource dataSource;
+	
+	public void start()
+	{
+	   
+		
+		ComboPooledDataSource cpds = new ComboPooledDataSource();
+		try{
+			cpds.setDriverClass("oracle.jdbc.driver.OracleDriver");
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		cpds.setJdbcUrl("jdbc:oracle:thin:@127.0.0.1:1521:XE");
+		cpds.setUser("system");
+		cpds.setPassword("0000");
+		
+		cpds.setMinPoolSize(5);
+		cpds.setAcquireIncrement(5);
+		cpds.setMaxPoolSize(20);
+		
+		dataSource = cpds;
+	}
+	public void shutDown(){
+		try{
+		DataSources.destroy(dataSource);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	public Object getObject(@SuppressWarnings("rawtypes") Class type){
+		if(type==AnalysisResultDAO.class){
+			return createAnalysisResultDAO();
+		}
+		else if(type==AnalysisResultAddAction.class){
+			return createAnalysisResultAddAction();
+		}else if(type==AnalysisResultDeleteAction.class){
+			return createAnalysisResultDeleteAction();
+		}else if(type==AnalysisResultSearchAction.class){
+			return createAnalysisSearchAction();
+		}else if(type==AdvInfoSelectAction.class)
+			return createAdvInfoSelectionAction();
+			return null;
+	}
+	private AnalysisResultDAO createAnalysisResultDAO() 
+	{
+		AnalysisResultDAO analysisResultDAO = new AnalysisResultDAOImple();
+		analysisResultDAO.setDataSource(dataSource);
+		return analysisResultDAO;
+	}
+	private AdvInfoDAO createAdvInfoDAO()
+	{
+		AdvInfoDAO advInfoDAO = new AdvInfoDAOImple();
+		advInfoDAO.setDataSource(dataSource);
+		return advInfoDAO;
+	}
+	*/
+	private AnalysisResultAddAction createAnalysisResultAddAction()
+	{
+		AnalysisResultAddAction action = new AnalysisResultAddAction();
+		action.setAnalysisResultDAO(createAnalysisResultDAO());
+		return action;
+	}
+	private AnalysisResultDeleteAction createAnalysisResultDeleteAction()
+	{
+		AnalysisResultDeleteAction action = new AnalysisResultDeleteAction();
+		action.setAnalysisResultDAO(createAnalysisResultDAO());
+		return action;
+	}
+	private AnalysisResultSearchAction createAnalysisSearchAction()
+	{
+		AnalysisResultSearchAction action = new AnalysisResultSearchAction();
+		action.setAnalysisResultDAO(createAnalysisResultDAO());
+		return action;
+	}
+	private AdvInfoSelectAction createAdvInfoSelectionAction()
+	{
+		AdvInfoSelectAction action = new AdvInfoSelectAction();
+		action.setAdvInfoDAO(createAdvInfoDAO());
+		return action;
+	}
+}

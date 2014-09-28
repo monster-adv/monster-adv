@@ -1,0 +1,36 @@
+package bean;
+
+
+public class FilmAdv extends Advertisement{
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	private String name;
+	private String loaction;
+	private int playtime;
+	
+
+	public FilmAdv(String loaction, int playtime) {
+		super();
+		this.loaction = loaction;
+		this.playtime = playtime;
+	}
+	public String getLoaction() {
+		return loaction;
+	}
+	public void setLoaction(String loaction) {
+		this.loaction = loaction;
+	}
+	public int getPlaytime() {
+		return playtime;
+	}
+	public void setPlaytime(int playtime) {
+		this.playtime = playtime;
+	}
+
+	
+}

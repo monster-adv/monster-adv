@@ -1,0 +1,18 @@
+package advertisement;
+
+import java.util.ArrayList;
+
+import bean.FilmAdvInfo;
+
+public class AdvertisementSearchAction {
+
+	private AdvertisementDAO AdvInfoDAO;
+	public void setAdvInfoDAO(AdvertisementDAO AdvInfoDAO)
+	{
+		this.AdvInfoDAO=AdvInfoDAO;
+	}
+	public ArrayList<FilmAdvInfo> search()
+	{
+		return AdvInfoDAO.search();
+	}
+}

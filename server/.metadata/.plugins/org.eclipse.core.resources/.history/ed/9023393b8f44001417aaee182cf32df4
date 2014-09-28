@@ -1,0 +1,44 @@
+package main;
+
+import advertisement.film.AdvOrder;
+import analysis.AdvSave;
+import analysis.FilmAnalyzer;
+import analysis.FloatingPopulationDependencyInjector;
+import analysis.GenderInfo;
+
+
+
+
+
+public class FloatingPopulationAnalyzer {
+
+	public static void main(String args[])
+	{		
+		FloatingPopulationDependencyInjector injector = new FloatingPopulationDependencyInjector();
+		injector.start();
+		
+		
+		/*gender는 영상 분석에 대한 결과 저장과, 그것에 대한 control할 수 있는 공유 객체이다.*/
+		GenderInfo gender = new GenderInfo();
+	
+		/*영상 분석*/
+		FilmAnalyzer filmAnalyzer = new FilmAnalyzer(gender);
+
+		
+		
+		AdvSave save = new AdvSave(injector, gender);
+		AdvOrder order = new AdvOrder(gender, injector);
+		
+		Thread t1 = new Thread(filmAnalyzer);
+		
+		
+		Thread t2 = new Thread(save);
+		Thread t3 = new Thread(order);
+		
+		t1.start();
+		t2.start();
+		t3.start();
+		
+	}
+	
+}

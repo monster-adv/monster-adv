@@ -1,0 +1,33 @@
+ackage analysis;
+
+import bean.AnalysisResult;
+
+public class temp implements Runnable{
+	
+	private AnalysisResult gender;
+	
+	public temp(AnalysisResult gender)
+	{
+		this.gender = gender;
+		
+	}
+	@Override
+	public void run() {
+		
+	while(true)
+	{
+		System.out.println("flag = " + gender.flag + " male : " + gender.male + " female : " + gender.female);
+		/*	
+		if(gender.male == 1)
+		{
+			System.out.println("man   :" + gender.male);
+			System.out.println("woman :" + gender.female );
+			//gender.flag = 1;
+		}*/
+	}
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

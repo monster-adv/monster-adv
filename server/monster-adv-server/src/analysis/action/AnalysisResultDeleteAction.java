@@ -1,5 +1,5 @@
 package analysis.action;
-import bean.AnalysisResult;
+import analysis.AnalysisResult;
 import analysis.AnalysisResultDAO;
 
 

@@ -1,0 +1,108 @@
+package advertisement;
+import java.io.*;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import bean.FilmAdvInfo;
+import bean.PeopleKind;
+
+import analysis.AnalysisResult;
+import analysis.DecisionMaker;
+import analysis.AnalysisDependencyInjector;
+
+public class AdvertisementPlayThread implements Runnable{
+
+	private int port;
+	private AnalysisResult analysisResult;
+	private AnalysisDependencyInjector injector;
+	
+	public AdvertisementPlayThread(AnalysisResult analysisResult, AnalysisDependencyInjector injector,int port)
+	{
+		this.analysisResult = analysisResult;
+		this.injector = injector;
+		this.port=port;
+	}
+	
+	public void run(){
+		int male, female;
+		
+		try {
+			Socket socket;
+			ServerSocket serverSocket = null;			
+			String dbg;
+			DataInputStream dis;
+			DataOutputStream dos;
+			FileInputStream fis;
+			DecisionMaker decisionMaker;
+			
+			/*connect socket*/
+			serverSocket = new ServerSocket();
+			serverSocket.setReuseAddress(true);
+			serverSocket.bind(new InetSocketAddress(port));
+			socket = serverSocket.accept();
+
+			
+			decisionMaker = new DecisionMaker(injector, analysisResult);
+			dis = new DataInputStream(socket.getInputStream());
+			dos = new DataOutputStream(socket.getOutputStream());
+			FilmAdvInfo selectedInfo=null;
+			
+			while(true){
+				dbg = dis.readUTF();
+				System.out.println(dbg);
+				if(dbg .compareTo("<REQUEST>") != 0){
+					continue;
+				}
+
+				System.out.println("Receive Request Message");
+				
+				
+				
+				male = analysisResult.getFemaleCount();
+				female = analysisResult.getMaleCount();
+				if(male > female){
+					selectedInfo = decisionMaker.decision(PeopleKind.M);
+				}
+				else if(male < female){
+				}
+				else{
+				}
+				
+				
+ = decisionMaker.decision();
+
+				
+				dos.writeUTF("<START>");
+				
+				dos.writeUTF(selectedInfo.getLoaction()); // filename DB로부터 가져오기
+				
+				dbg = dis.readUTF();
+				System.out.println(dbg);
+				if(dbg.compareTo("<START>") == 0){
+					System.out.println("Receive Start Message");
+
+					File file = new File("C:/AdvFile/" + selectedInfo.getLoaction());
+					fis = new FileInputStream(file); 
+			        int size = 65536; //사이즈 재조정
+			        int len;
+			        byte[] data = new byte[size];
+			        while ((len = fis.read(data)) != -1) {
+			        	System.out.println(""+len);
+		                dos.write(data, 0, len);
+		            }
+			        dos.flush();
+			        System.out.println("Success Transfer Advertisement File");
+				}
+				else if(dbg.compareTo("<EXIST>") == 0){
+					System.out.println("Receive Exist Message");
+				}
+				/*결과에 대한 저장을 하는 부분이 존재하지 않는다.*/
+			}	
+		}
+		catch (IOException e) {
+		e.printStackTrace();
+		}
+	}
+}
+

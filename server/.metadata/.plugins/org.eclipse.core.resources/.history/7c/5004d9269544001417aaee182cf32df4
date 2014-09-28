@@ -1,0 +1,85 @@
+package analysis;
+import java.util.ArrayList;
+
+import bean.AnalysisResult;
+import bean.FilmAdvInfo;
+import bean.PeopleKind;
+import analysis.action.AdvInfoSelectAction;
+
+public class DecisionMaker
+{
+	private FloatingPopulationDependencyInjector injector;
+	
+	private ArrayList<FilmAdvInfo> queue_M = new ArrayList<>();
+	private ArrayList<FilmAdvInfo> queue_F = new ArrayList<>();
+	private ArrayList<FilmAdvInfo> queue_N = new ArrayList<>();
+	private AnalysisResult gender;
+	private int male, female, cnt_M = 0, cnt_F = 0, cnt_N = 0;
+	public DecisionMaker(FloatingPopulationDependencyInjector injector, AnalysisResult gender)
+	{
+		this.injector = injector;
+		this.gender = gender;
+	}
+	public FloatingPopulationDependencyInjector getInjector() {
+		return injector;
+	}
+
+	public void setInjector(FloatingPopulationDependencyInjector injector) {
+		this.injector = injector;
+	}
+	public void renewQueue()
+	{
+		AdvInfoSelectAction	selection = (AdvInfoSelectAction)injector.getObject(AdvInfoSelectAction.class);
+		
+		/*전체 리스트를 받아와 임시 리스트*/
+		ArrayList<FilmAdvInfo> tempList	= selection.search();
+
+		for(FilmAdvInfo tInfo : tempList)
+		{
+			if(tInfo.getKind() == PeopleKind.M)
+			{
+				System.out.print("man");
+				queue_M.add(tInfo);
+			}
+			else if((list.get(i)).getKind() == PeopleKind.F)
+			{
+				System.out.print("woman");
+				queue_F.add(list.get(i));
+			}
+			else
+			{
+				System.out.print("natural");
+				queue_N.add(list.get(i));
+			}
+			
+		}
+		
+	}
+	
+	
+	public String decision()
+	{
+		male = gender.getMale();
+		female = gender.getFemale();
+		if(male > female){
+			if(cnt_M == queue_M.size())
+				cnt_M = 0;
+			return queue_M.get(cnt_M++).getLoaction();
+		}
+		else if(male < female){
+			if(cnt_F == queue_F.size())
+				cnt_F = 0;
+			return queue_F.get(cnt_F++).getLoaction();
+		}
+		else{
+			if(cnt_N == queue_N.size())
+				cnt_N = 0;
+			return queue_N.get(cnt_N++).getLoaction();
+		}
+		
+		
+	}
+
+
+	
+}

@@ -1,0 +1,25 @@
+package bean;
+
+public class AnalysisResult {
+	private int flag = 0;
+	private int maleCount = 0;
+	private int femaleCount = 0;
+	public int getFlag() {
+		return flag;
+	}
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
+	public int getMaleCount() {
+		return maleCount;
+	}
+	public void setMaleCount(int maleCount) {
+		this.maleCount = maleCount;
+	}
+	public int getFemaleCount() {
+		return femaleCount;
+	}
+	public void setFemaleCount(int femaleCount) {
+		this.femaleCount = femaleCount;
+	}
+}

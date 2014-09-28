@@ -1,0 +1,49 @@
+package analysis;
+
+import bean.AnalysisResult;
+import analysis.action.AnalysisResultAddAction;
+
+public class AdvSave implements Runnable{
+	
+	private FloatingPopulationDependencyInjector injector;
+	private GenderInfo gender;
+	private int man_temp;
+	private int female_temp;
+	
+	public AdvSave(FloatingPopulationDependencyInjector injector, GenderInfo gender)
+	{
+		this.injector = injector;
+		this.gender = gender;
+		man_temp = 0;
+		female_temp = 0;
+	}
+	@Override
+	public void run() 
+	{
+		AnalysisResultAddAction addaction;
+		AnalysisResult analysisResult = new AnalysisResult();
+		addaction = (AnalysisResultAddAction)injector.getObject(AnalysisResultAddAction.class);
+
+		while(true)
+		{
+			/*영상이 저장될 조건과 저장되지 않을 조건을 수정하시오...
+			 * 1안. 이 함수 내에 타이머를 건다.
+			 * 2안. C++에서 Flag를 만든다 (이렇게 되면 타이머가 C++에 있는 셈)
+			 * */
+			if(man_temp == gender.getMale() && female_temp == gender.getFemale())
+			{				
+			}
+			else
+			{
+				man_temp = gender.getMale();
+				female_temp = gender.getFemale();	
+				result.setNumOfMr(man_temp);
+				result.setNumOfMs(female_temp);
+				addaction.add(result);
+				System.out.println("result: " + result.getNumOfMr() +"   " +result.getNumOfMs() );
+			}
+		}
+	}
+	
+
+}

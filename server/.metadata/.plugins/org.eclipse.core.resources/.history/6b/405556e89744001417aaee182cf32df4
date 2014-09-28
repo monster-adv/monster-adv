@@ -1,0 +1,83 @@
+package advertisement.film;
+import java.io.*;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import bean.AnalysisResult;
+
+import analysis.DecisionMaker;
+import analysis.FloatingPopulationDependencyInjector;
+
+public class AdvPlayThread implements Runnable{
+	private ServerSocket serverSocket = null;
+	private int port;
+	private AnalysisResult gender;
+	private Socket socket;
+	private FloatingPopulationDependencyInjector injector;
+	
+	public AdvPlayThread(AnalysisResult gender, FloatingPopulationDependencyInjector injector,int port)
+	{
+		this.gender = gender;
+		this.injector = injector;
+		this.port=port;
+	}
+	
+	public void run(){
+		try {
+			
+			String filename, dbg;
+			DataInputStream dis;
+			DataOutputStream dos;
+			FileInputStream fis;
+			DecisionMaker dm;
+			
+			/*connect socket*/
+			serverSocket = new ServerSocket();
+			serverSocket.setReuseAddress(true);
+			serverSocket.bind(new InetSocketAddress(port));
+			socket = serverSocket.accept();
+
+			
+			dm = new DecisionMaker(injector, gender);
+			dis = new DataInputStream(socket.getInputStream());
+			dos = new DataOutputStream(socket.getOutputStream());
+			while(true){
+				dbg = dis.readUTF();
+				System.out.println(dbg);
+				if(dbg .compareTo("<REQUEST>") != 0){
+					continue;
+				}
+				System.out.println("Receive Request Message");
+				filename = dm.decision();
+				dos.writeUTF("<START>");
+				System.out.println("Send Start Message");
+				dos.writeUTF(filename); // filename DB로부터 가져오기
+				System.out.println("Send filename : "+filename);
+				dbg = dis.readUTF();
+				System.out.println(dbg);
+				if(dbg.compareTo("<START>") == 0){
+					System.out.println("Receive Start Message");
+					File file = new File("C:/AdvFile/" + filename);
+					fis = new FileInputStream(file); 
+			        int size = 65536; //사이즈 재조정
+			        int len;
+			        byte[] data = new byte[size];
+			        while ((len = fis.read(data)) != -1) {
+			        	System.out.println(""+len);
+		                dos.write(data, 0, len);
+		            }
+			        dos.flush();
+			        System.out.println("Success Transfer Advertisement File");
+				}
+				else if(dbg.compareTo("<EXIST>") == 0){
+					System.out.println("Receive Exist Message");
+				}
+			}	
+		}
+		catch (IOException e) {
+		e.printStackTrace();
+		}
+	}
+}
+

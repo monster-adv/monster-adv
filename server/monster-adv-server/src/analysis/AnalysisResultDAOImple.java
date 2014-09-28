@@ -8,37 +8,33 @@ import java.util.Calendar;
 
 public class AnalysisResultDAOImple extends BaseDAO implements AnalysisResultDAO{
 	private Connection conn;
-	private PreparedStatement pStmt;
-	private ResultSet rs;
-	private String sql;
-	private Calendar cal = Calendar.getInstance();
-	private Time t;
-	private Date d;
-	@Override
+
+	private final static String ADD_SQL ="insert into analysis values(to_date(?, 'YYYY-MM-DD HH24:MI:SS'),to_date(?, 'YYYY-MM-DD HH24:MI:SS'),?,?)";
 	public boolean add(AnalysisResult analysisResult) {
+
+		Calendar cal = Calendar.getInstance();
+		Time time = new Time(cal.getTimeInMillis());
+		Date date = new Date(cal.getTimeInMillis());;		
+		PreparedStatement pStmt;
+		ResultSet rs=null;	
 		// TODO Auto-generated method stub
 		try {
 			conn = getConnection();
-			sql = "insert into analysis values(to_date(?, 'YYYY-MM-DD HH24:MI:SS'),to_date(?, 'YYYY-MM-DD HH24:MI:SS'),?,?)";
-			pStmt = conn.prepareStatement(sql);
+			pStmt = conn.prepareStatement(ADD_SQL);
 			//cal = analysisResult.getStartTime();
-			d = new Date(cal.getTimeInMillis());
-			t = new Time(cal.getTimeInMillis());
-			pStmt.setString(1, d.toString() + " " + t.toString());
+			pStmt.setString(1, date.toString() + " " + time.toString());
 			//cal = analysisResult.getEndTime();
-			d = new Date(cal.getTimeInMillis());
-			t = new Time(cal.getTimeInMillis());
-			pStmt.setString(2, d.toString() + " " +t.toString());
-			pStmt.setInt(3,analysisResult.getNumOfMr());
-			pStmt.setInt(4, analysisResult.getNumOfMs());
+			date = new Date(cal.getTimeInMillis());
+			time = new Time(cal.getTimeInMillis());
+			pStmt.setString(2, date.toString() + " " +time.toString());
+			pStmt.setInt(3,analysisResult.getMaleCount());
+			pStmt.setInt(4, analysisResult.getFemaleCount());
 			pStmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
-		
-
 	try {
 		rs.close();
 		pStmt.close();
@@ -50,8 +46,7 @@ public class AnalysisResultDAOImple extends BaseDAO implements AnalysisResultDAO
 		return true;
 	}
 	
-	@Override
-	public boolean delete(AnalysisResult analysisResult) {
+/*	public boolean delete(AnalysisResult analysisResult) {
 		// TODO Auto-generated method stub
 		try {
 			conn = getConnection();
@@ -76,9 +71,8 @@ public class AnalysisResultDAOImple extends BaseDAO implements AnalysisResultDAO
 		
 		return true;
 	}
-
-	@Override
-	public AnalysisResult search(Calendar StartTime) {
+*/
+/*	public AnalysisResult search(Calendar StartTime) {
 		// TODO Auto-generated method stub
 		AnalysisResult analysisResult = new AnalysisResult();
 		//int i = 1;
@@ -106,5 +100,5 @@ public class AnalysisResultDAOImple extends BaseDAO implements AnalysisResultDAO
 			e.printStackTrace();
 		}
 		return analysisResult;
-	}
+	}*/
 }

@@ -1,0 +1,53 @@
+package advertisement;
+import base.*;
+import bean.*;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+
+
+public class AdvertisementDAOImple extends BaseDAO implements AdvertisementDAO{
+	private Connection conn;
+
+	
+	private final String SEARCH_SQLSQL = "select * from adv_info";
+
+	public ArrayList<FilmAdvInfo> search() {
+
+		ArrayList<FilmAdvInfo> filmArray = new ArrayList<FilmAdvInfo>();
+		PreparedStatement pStmt=null;
+		ResultSet rs=null;
+		
+		try {		
+			conn = getConnection();
+			pStmt = conn.prepareStatement(SEARCH_SQLSQL);
+			rs = pStmt.executeQuery();
+			FilmAdvInfo info;
+			while(rs.next())
+			{
+				info = new FilmAdvInfo(rs.getString("locate"), rs.getInt("time"), 
+					   PeopleKind.valueOf(rs.getString("people_kind")), rs.getInt("sum"));
+				filmArray.add(info);
+				System.out.println("inner" + rs.getString("people_kind"));	
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			rs.close();
+			pStmt.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+		return filmArray;
+	}
+
+
+}

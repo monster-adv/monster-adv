@@ -1,0 +1,57 @@
+package analysis;
+import base.*;
+import bean.*;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+
+
+public class AdvInfoDAOImple extends BaseDAO implements AdvInfoDAO{
+	private Connection conn;
+	private PreparedStatement pStmt;
+	private ResultSet rs;
+	private String sql;
+
+	@Override
+	
+	
+	private final String searchSQL = "select * from adv_info";
+	public ArrayList<FilmAdvInfo> search() {
+
+		try {
+		
+			conn = getConnection();
+			sql = "select * from adv_info";
+			pStmt = conn.prepareStatement(sql);
+			rs = pStmt.executeQuery();
+			FilmAdvInfo info;
+			while(rs.next())
+			{
+				info = new FilmAdvInfo(rs.getString("locate"), rs.getInt("time"), 
+					   PeopleKind.valueOf(rs.getString("people_kind")), rs.getInt("sum"));
+				list.add(info);
+				System.out.println("inner" + rs.getString("people_kind"));	
+			}
+			
+
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			rs.close();
+			pStmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+	}
+
+
+}

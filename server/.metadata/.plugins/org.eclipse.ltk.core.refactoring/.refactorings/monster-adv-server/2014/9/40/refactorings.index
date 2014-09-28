@@ -1,0 +1,19 @@
+1411872103339	Rename type 'FloatingPopulationAnalyzer'
+1411872154828	Move compilation unit
+1411872262571	Rename type 'FloatingPopulationDependencyInjector'
+1411872847296	Move compilation unit
+1411872850997	Move compilation unit
+1411872922875	Move compilation unit
+1411872940730	Rename type 'AdvInfoSelectAction'
+1411872983429	Rename type 'AdvInfoDAO'
+1411873001188	Rename type 'AdvInfoDAOImple'
+1411873716533	Rename type 'AdvPlayThread'
+1411873819175	Move compilation unit
+1411873822199	Delete element
+1411873836130	Move compilation unit
+1411873852619	Delete elements
+1411873917709	Delete element
+1411875010297	Move compilation unit
+1411875031337	Rename type 'FilmAnalyzeThread'
+1411876168366	Move compilation unit
+1411876270148	Rename type 'AnalysisDependencyInjector'

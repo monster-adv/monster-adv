@@ -75,7 +75,7 @@
 			
 			<tr>
 				<td></td>
-				<td><input class="sButton" type="submit" value="회원가입" /></td>
+				<td><input class="sButton" type="submit" value="등록" /></td>
 			</tr>		
 		</tbody>
 		</table>

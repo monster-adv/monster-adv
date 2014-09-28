@@ -1,3 +1,6 @@
+/**
+ * this page weppage servlet
+ */
 package servlet;
 
 import java.io.IOException;
@@ -24,9 +27,6 @@ import advertisement.action.AdvertisementSearchAction;
 
 import com.google.gson.*;
 
-/**
- * Servlet implementation class HomepageServlet
- */
 @WebServlet({ "/", "/main" })
 public class HomepageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -84,20 +84,18 @@ public class HomepageServlet extends HttpServlet {
 		int lastIndex = uri.lastIndexOf("/");
 		String action = uri.substring(lastIndex + 1);
 		String dispatchUrl = "main.jsp";
-		/*�� ���� �� Ȯ���ؼ� �ϳ� ���� ��, Ȩ������ ���� ��*/
+		/*main page*/
 		if(action==null||action.equals("")){
 			dispatchUrl="main.jsp";
 		}
 		else if(action.equals("main")){
 			dispatchUrl="main.jsp";
 		}
+		/*login page*/
 		else if(action.equals("login")){
 			dispatchUrl="login.jsp";
 		}		
-		/*����Ʈ ������ �������� ��*/
-		else if(action.equals("weare")){
-			dispatchUrl="weAre.jsp";
-		}
+		/*weare page*/
 		else if(action.equals("weare")){
 			dispatchUrl="weAre.jsp";
 		}

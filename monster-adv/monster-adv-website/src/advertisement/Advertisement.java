@@ -4,7 +4,7 @@ public class Advertisement {
 	private String name;
 	private String advNum;
 	private String masterId;
-	private String SignageId;
+	private String signageId;
 	private String peopleKind;
 	private String advKind;
 	private int time;
@@ -18,7 +18,7 @@ public class Advertisement {
 	@Override
 	public String toString() {
 		return "Advertisement [name=" + name + ", advNum=" + advNum
-				+ ", masterId=" + masterId + ", SignageId=" + SignageId
+				+ ", masterId=" + masterId + ", SignageId=" + signageId
 				+ ", peopleKind=" + peopleKind + ", advKind=" + advKind
 				+ ", time=" + time + ", sum=" + sum + ", men_count="
 				+ men_count + ", women_count=" + women_count + ", locate="
@@ -31,7 +31,7 @@ public class Advertisement {
 		this.name = name;
 		this.advNum = advNum;
 		this.masterId = masterId;
-		SignageId = signageId;
+		signageId = signageId;
 		this.peopleKind = peopleKind;
 		this.advKind = advKind;
 		this.time = time;
@@ -47,7 +47,7 @@ public class Advertisement {
 		this.name = name;
 		this.advNum = advNum;
 		this.masterId = masterId;
-		SignageId = signageId;
+		signageId = signageId;
 		this.peopleKind = peopleKind;
 		this.advKind = advKind;
 		this.time = time;
@@ -70,7 +70,7 @@ public class Advertisement {
 		this.name = name;
 		this.advNum = advNum;
 		this.masterId = masterId;
-		SignageId = signageId;
+		signageId = signageId;
 		this.peopleKind = peopleKind;
 		this.advKind = advKind;
 		this.time = time;
@@ -89,10 +89,10 @@ public class Advertisement {
 		this.masterId = masterId;
 	}
 	public String getSignageId() {
-		return SignageId;
+		return signageId;
 	}
 	public void setSignageId(String signageId) {
-		SignageId = signageId;
+		signageId = signageId;
 	}
 	public String getPeopleKind() {
 		return peopleKind;

@@ -1,0 +1,5 @@
+package advertisement;
+
+public class AdvertisementDependencyInjector {
+
+}

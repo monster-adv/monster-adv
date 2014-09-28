@@ -31,4 +31,8 @@
 <fullyQualifiedTypeName name="base.Advertisement"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletConfig"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.ArrayDeque"/>
+<fullyQualifiedTypeName name="bean.FilmAdvInfo"/>
+<fullyQualifiedTypeName name="bean.PeopleKind"/>
 </qualifiedTypeNameHistroy>

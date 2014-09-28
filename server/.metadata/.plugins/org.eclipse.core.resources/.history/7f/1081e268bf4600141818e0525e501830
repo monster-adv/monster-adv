@@ -1,0 +1,24 @@
+package analysis;
+
+
+
+
+
+public class FilmAnalyzeThread implements Runnable
+{
+	AnalysisResult genderInfo;
+		
+	public FilmAnalyzeThread(AnalysisResult genderInfo)
+	{
+		
+		this.genderInfo = genderInfo;
+	}	
+	
+	public void run() {
+		this.NativeCall(genderInfo);
+	}
+	native void NativeCall(AnalysisResult gender);
+	static{
+		System.loadLibrary("genderr");
+	}
+}
