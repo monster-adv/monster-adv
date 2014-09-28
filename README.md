@@ -12,3 +12,4 @@ means
 <br>if you contact or question  : cgmore@naver.com
 <br>
 <br>thanks
+<br>This Open Source under the GPL
