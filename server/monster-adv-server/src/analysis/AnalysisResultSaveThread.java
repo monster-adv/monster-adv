@@ -28,6 +28,7 @@ public class AnalysisResultSaveThread implements Runnable{
 			 * 1안. 이 함수 내에 타이머를 건다.
 			 * 2안. C++에서 Flag를 만든다 (이렇게 되면 타이머가 C++에 있는 셈)
 			 * */
+			
 			if(man_temp == genderInfo.getMaleCount() && female_temp == genderInfo.getFemaleCount())
 			{				
 			}

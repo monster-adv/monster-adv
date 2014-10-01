@@ -12,7 +12,9 @@ public class AnalysisThread implements Runnable
 	}	
 	
 	public void run() {
+		
 		this.NativeCall(genderInfo);
+		
 	}
 	native void NativeCall(AnalysisResult gender);
 	static{

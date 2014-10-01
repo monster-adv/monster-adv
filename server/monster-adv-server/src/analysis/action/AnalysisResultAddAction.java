@@ -5,7 +5,9 @@ import analysis.AnalysisResultDAO;
 
 
 public class AnalysisResultAddAction {
+	
 	private AnalysisResultDAO analysisResultDAO;
+	
 	public void setAnalysisResultDAO(AnalysisResultDAO analysisResultDAO)
 	{
 		this.analysisResultDAO=analysisResultDAO;
@@ -14,4 +16,5 @@ public class AnalysisResultAddAction {
 	{
 		return analysisResultDAO.add(analysisResult);
 	}
+	
 }
